@@ -1,0 +1,99 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+.container {
+    display: grid;
+    gap: 10px;
+    padding: 16px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.toprow {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 20px;
+    border: 1px solid black;
+    background-color: skyblue;
+    padding: 16px;
+    border-radius: 20px;
+    grid-template-areas: "leftbox rightbox";
+    align-items: center;
+
+}
+
+.leftbox>img {
+    border-radius: 50%;
+    object-fit: cover;
+    width: min(200px, 80%);
+    aspect-ratio: 1 / 1;
+}
+
+.leftbox {
+    grid-area: leftbox;
+}
+
+.rightbox {
+    grid-area: rightbox;
+}
+
+.rightbox>h1, .rightbox>p {
+    line-height: 1.6;
+    padding: 5px;
+    margin-bottom: 20px;
+    overflow-wrap: anywhere;
+
+
+}
+
+.middlerow {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    padding: 16;
+    justify-content: center;
+}
+
+.hobbies, .aspiration {
+    border: 1px solid #ff1493;
+    border-radius: 20px;
+    padding: 16px;
+    background-color: skyblue;
+
+}
+
+.hobbies li {
+    margin-bottom: 10px;
+}
+
+@media(max-width: 600px) {
+    .toprow {
+        grid-template-columns: 1fr;
+        grid-template-areas: "leftbox""rightbox";
+        padding: 10px;
+        gap: 5px;
+    }
+
+    .leftbox {
+        justify-self: center;
+    }
+
+    .leftbox>img {
+        width: min(50vw, 180px);
+    }
+
+    .rightbox {
+        text-align: center;
+        max-width: 90%;
+        margin: 0 auto;
+    }
+
+    .middlerow {
+        grid-template-columns: 1fr;
+    }
+
+    .container {
+        padding: 5px;
+    }
+}
